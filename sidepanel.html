@@ -3,170 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bible Reader</title>
-    <link rel="stylesheet" href="sidepanel.css" />
+    <title>VerseLens</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        zoom: 0.8;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+    </style>
   </head>
   <body>
-    <div class="header">
-      <div class="header-content">
-        <div class="header-controls">
-          <div class="left-controls">
-            <div class="relative" id="bookDropdownContainer">
-              <button class="dropdown-button loading" id="bookDropdownButton">
-                <span id="selectedBookText">Loading Books...</span>
-                <svg
-                  class="chevron hidden"
-                  id="bookChevron"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <polyline points="6,9 12,15 18,9"></polyline>
-                </svg>
-              </button>
-
-              <div class="dropdown-menu book-dropdown hidden" id="bookDropdown">
-                <div class="search-container">
-                  <div class="search-box">
-                    <svg
-                      class="search-icon"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <circle cx="11" cy="11" r="8"></circle>
-                      <path d="m21 21-4.35-4.35"></path>
-                    </svg>
-                    <input
-                      type="text"
-                      placeholder="Search books..."
-                      class="search-input"
-                      id="searchInput"
-                    />
-                    <div class="clear-button hidden" id="clearButton">
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="books-list shimmer-active" id="booksListShimmer">
-                  <div
-                    class="shimmer-line"
-                    style="width: 80%; height: 1.5rem"
-                  ></div>
-                  <div
-                    class="shimmer-line"
-                    style="width: 90%; height: 1.5rem"
-                  ></div>
-                  <div
-                    class="shimmer-line"
-                    style="width: 75%; height: 1.5rem"
-                  ></div>
-                  <div
-                    class="shimmer-line"
-                    style="width: 85%; height: 1.5rem"
-                  ></div>
-                  <div
-                    class="shimmer-line"
-                    style="width: 70%; height: 1.5rem"
-                  ></div>
-                </div>
-
-                <div class="chapter-section hidden" id="chapterSection">
-                  <div class="chapter-section-title">Select Chapter:</div>
-                  <div class="chapter-grid" id="chapterGrid"></div>
-                </div>
-
-                <div class="books-list hidden" id="booksList"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="relative" id="versionDropdownContainer">
-            <button class="dropdown-button loading" id="versionDropdownButton">
-              <span id="selectedVersionText">Loading Versions...</span>
-              <svg
-                class="chevron hidden"
-                id="versionChevron"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <polyline points="6,9 12,15 18,9"></polyline>
-              </svg>
-            </button>
-
-            <div
-              class="dropdown-menu version-dropdown hidden"
-              id="versionDropdown"
-            >
-              <div
-                class="versions-list shimmer-active"
-                id="versionsListShimmer"
-                style="padding: 0.5rem 0"
-              >
-                <div
-                  class="shimmer-line"
-                  style="width: 70%; height: 1.5rem"
-                ></div>
-                <div
-                  class="shimmer-line"
-                  style="width: 80%; height: 1.5rem"
-                ></div>
-                <div
-                  class="shimmer-line"
-                  style="width: 60%; height: 1.5rem"
-                ></div>
-              </div>
-
-              <div
-                class="versions-list hidden"
-                id="versionsList"
-                style="padding: 0.5rem 0"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="main-content">
-      <div id="welcomeMessage" class="welcome-message">
-        <h1>Welcome to VerseLens</h1>
-        <p>Select a book, chapter, and version to start reading!</p>
-        <p>bolexyro is glad to have you here.</p>
-      </div>
-
-      <div id="mainContentLoader" class="loader-container hidden">
-        <div class="spinner"></div>
-        <p class="loader-text">Loading verse...</p>
-      </div>
-
-      <div class="content-wrapper hidden" id="mainChapterContent">
-        <div class="title-section">
-          <h1 class="main-title" id="mainTitle"></h1>
-        </div>
-
-        <div class="chapter-content">
-          <h2 class="chapter-heading" id="chapterHeading"></h2>
-          <div class="bible-text" id="bibleTextContent"></div>
-        </div>
-      </div>
-    </div>
-
+    <iframe id="bibleFrame" src="https://www.bible.com/bible"></iframe>
     <script src="sidepanel.js"></script>
   </body>
 </html>
